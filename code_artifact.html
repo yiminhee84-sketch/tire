@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공임나라 세종조치원점 - 합리적이고 투명한 프리미엄 자동차 정비</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Sans KR, Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Noto Sans KR', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f4f8',
+                            100: '#dbeafe',
+                            500: '#1e3b8b', // 신뢰감을 주는 프리미엄 네이비
+                            600: '#162a65',
+                            700: '#0f1d47',
+                            900: '#0b132b', // 깊은 네이비 (푸터 및 카드 백그라운드용)
+                        },
+                        accent: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            500: '#ff6b00', // 시선을 끄는 주황 포인트 컬러
+                            600: '#e05300',
+                            700: '#b83f00',
+                        },
+                        slatebg: '#f8fafc',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar matching navy & orange */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1e3b8b;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 font-sans antialiased overflow-x-hidden">
+
+<!-- HEADER / NAVIGATION -->
+<header class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-3">
+                <div class="bg-brand-500 text-white p-2.5 rounded-xl font-black text-xl shadow-lg shadow-brand-500/20 flex items-center justify-center">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </div>
+                <div>
+                    <span class="text-xs text-accent-500 font-bold tracking-widest block uppercase">Gongim Nara</span>
+                    <h1 class="text-lg sm:text-xl font-black tracking-tight text-brand-500 flex items-center gap-1.5">
+                        공임나라 <span class="text-accent-500">세종조치원점</span>
+                    </h1>
+                </div>
+            </div>
+
+            <!-- Desktop Nav Menu -->
+            <nav class="hidden md:flex items-center gap-8 font-medium">
+                <a href="#about" class="text-slate-600 hover:text-brand-500 transition-colors">매장 소개</a>
+                <a href="#services" class="text-slate-600 hover:text-brand-500 transition-colors">정비 항목</a>
+                <a href="#calculator" class="text-slate-600 hover:text-brand-500 transition-colors">공임 계산기</a>
+                <a href="#booking" class="text-slate-600 hover:text-brand-500 transition-colors">예약 문의</a>
+                <a href="#location" class="text-slate-600 hover:text-brand-500 transition-colors">위치 및 영업시간</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="tel:044-867-4811" class="flex items-center gap-2 text-sm font-semibold bg-slate-100 hover:bg-slate-200 text-slate-800 px-4 py-2.5 rounded-xl border border-slate-200 transition-all">
+                    <i class="fa-solid fa-phone text-brand-500"></i>
+                    044-867-4811
+                </a>
+                <a href="#booking" class="bg-accent-500 hover:bg-accent-600 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-lg shadow-accent-500/25 transition-all transform hover:-translate-y-0.5">
+                    간편 예약 신청
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-500 hover:text-slate-800 focus:outline-none p-2" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobile-menu" class="hidden md:hidden bg-slate-50 border-t border-slate-200 px-4 py-6 space-y-4 shadow-2xl">
+        <a href="#about" class="mobile-nav-link block text-slate-600 hover:text-brand-500 py-2.5 font-medium border-b border-slate-200/60">매장 소개</a>
+        <a href="#services" class="mobile-nav-link block text-slate-600 hover:text-brand-500 py-2.5 font-medium border-b border-slate-200/60">정비 항목</a>
+        <a href="#calculator" class="mobile-nav-link block text-slate-600 hover:text-brand-500 py-2.5 font-medium border-b border-slate-200/60">공임 계산기</a>
+        <a href="#booking" class="mobile-nav-link block text-slate-600 hover:text-brand-500 py-2.5 font-medium border-b border-slate-200/60">예약 문의</a>
+        <a href="#location" class="mobile-nav-link block text-slate-600 hover:text-brand-500 py-2.5 font-medium">위치 및 영업시간</a>
+        <div class="pt-4 flex flex-col gap-3">
+            <a href="tel:044-867-4811" class="flex items-center justify-center gap-2 w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-800 py-3 rounded-xl font-semibold border border-slate-200">
+                <i class="fa-solid fa-phone text-brand-500"></i>
+                전화 바로 걸기 (044-867-4811)
+            </a>
+            <a href="#booking" class="mobile-nav-link block w-full text-center bg-accent-500 hover:bg-accent-600 text-white py-3 rounded-xl font-bold">
+                간편 예약 신청
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden bg-gradient-to-b from-brand-50/50 via-white to-white">
+    <!-- Grid Overlay Decoration -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+    
+    <!-- Glowing Accent Circles -->
+    <div class="absolute top-1/4 left-1/10 w-96 h-96 bg-brand-500/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-1/4 right-1/10 w-96 h-96 bg-accent-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Hero Left: Title & Value Propositions -->
+            <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 bg-brand-50 border border-brand-100 px-4 py-2 rounded-full text-brand-500 text-sm font-bold mx-auto lg:mx-0">
+                    <span class="flex h-2 w-2 rounded-full bg-accent-500 animate-pulse"></span>
+                    세종 조치원 국산차·수입차 전문 정비 협력점
+                </div>
+
+                <!-- Main Catchphrase -->
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-tight">
+                    부품은 직접 준비하고,<br>
+                    정비는 <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent-500">투명한 표준 공임</span>으로!
+                </h2>
+
+                <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    공임나라 세종조치원점(꽃보다 타이어)에서는 과다 정비 걱정 없이 전국 표준 정찰제 공임으로 완벽한 정비 서비스를 경험할 수 있습니다. 엔진오일 교환부터 첨단 진동 휠 밸런스, 헬퍼탈착 타이어 작업까지 신속·정밀하게 해결해 드립니다.
+                </p>
+
+                <!-- Value Pillar Quick Badges -->
+                <div class="grid grid-cols-3 gap-3 max-w-md mx-auto lg:mx-0 pt-2">
+                    <div class="bg-white border border-slate-100 shadow-sm p-3 rounded-2xl text-center">
+                        <i class="fa-solid fa-scale-balanced text-accent-500 text-lg sm:text-2xl mb-1 block"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-700">정찰제 공임</span>
+                    </div>
+                    <div class="bg-white border border-slate-100 shadow-sm p-3 rounded-2xl text-center">
+                        <i class="fa-solid fa-user-gear text-brand-500 text-lg sm:text-2xl mb-1 block"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-700">베테랑 정비</span>
+                    </div>
+                    <div class="bg-white border border-slate-100 shadow-sm p-3 rounded-2xl text-center">
+                        <i class="fa-solid fa-computer text-brand-500 text-lg sm:text-2xl mb-1 block"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-700">첨단 전문장비</span>
+                    </div>
+                </div>
+
+                <!-- Hero Call to Actions -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="#calculator" class="w-full sm:w-auto text-center bg-accent-500 hover:bg-accent-600 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-xl shadow-accent-500/20 transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-calculator mr-2"></i>공임 즉시 계산해보기
+                    </a>
+                    <a href="tel:044-867-4811" class="w-full sm:w-auto text-center bg-brand-500 hover:bg-brand-600 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-xl shadow-brand-500/20 transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-phone mr-2 text-accent-500"></i>전화 상담/상태 문의
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Right: Dynamic Live Working Card & Quick Stat Info -->
+            <div class="lg:col-span-5 relative">
+                <div class="relative bg-white border border-slate-200 p-6 sm:p-8 rounded-3xl shadow-2xl shadow-slate-200/60 overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-500/5 rounded-full blur-2xl"></div>
+                    
+                    <!-- Mechanic illustration/Placeholder Concept -->
+                    <div class="mb-6 rounded-2xl overflow-hidden relative group aspect-[4/3] bg-slate-100">
+                        <img src="https://placehold.co/600x450/1e3b8b/ffffff?text=Gongim+Nara+Sejong+Jochiwon" alt="공임나라 세종조치원점 매장 전경 및 정비" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x450/1e3b8b/ffffff?text=%EA%B3%B5%EC%9E%84%EB%82%98%EB%9D%BC+%EC%84%B8%EC%A1%B0%EC%A1%B0%EC%B9%98%EC%9B%90%EC%A0%90';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 flex justify-between items-center">
+                            <span class="bg-emerald-500/90 text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                                <span class="h-1.5 w-1.5 rounded-full bg-white animate-ping"></span>
+                                실시간 예약 정비 가능
+                            </span>
+                            <span class="text-xs text-white/90 font-medium">조치원읍 충현로 48-11</span>
+                        </div>
+                    </div>
+
+                    <!-- Live Quick Booking Form Link -->
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                            <h3 class="font-bold text-lg text-slate-800">매장 요약 프로필</h3>
+                            <span class="text-xs text-accent-500 font-bold bg-accent-50 px-2 py-0.5 rounded">정비예약제</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <span class="text-slate-400 block">정비 책임대표</span>
+                                <span class="font-semibold text-slate-700">연제승 대표엔지니어</span>
+                            </div>
+                            <div>
+                                <span class="text-slate-400 block">협력 상호명</span>
+                                <span class="font-semibold text-slate-700">꽃보다 타이어</span>
+                            </div>
+                            <div>
+                                <span class="text-slate-400 block">주요 취급품</span>
+                                <span class="font-semibold text-slate-700">수입 오일류, 정품 타이어</span>
+                            </div>
+                            <div>
+                                <span class="text-slate-400 block">고객 평점</span>
+                                <span class="font-semibold text-accent-500 flex items-center gap-1">
+                                    <i class="fa-solid fa-star"></i> 4.9 / 5.0
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BRAND ABOUT & CORE HIGHLIGHTS -->
+<section id="about" class="py-24 bg-slate-50 border-t border-b border-slate-100 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-xs font-bold text-brand-500 tracking-widest uppercase mb-3">Core Strengths</h2>
+            <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                왜 공임나라 세종조치원점을 선택해야 할까요?
+            </p>
+            <p class="mt-4 text-slate-600">
+                인터넷에서 최저가로 구입한 엔진오일, 브레이크 패드, 타이어 등을 가져오시면 합리적인 표준 공임비만 받고 정확하게 장착·교환해 드립니다.
+            </p>
+        </div>
+
+        <!-- 3-Column Strength Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Strength 1 -->
+            <div class="bg-white border border-slate-200/60 hover:border-brand-500/40 p-8 rounded-3xl shadow-sm transition-all group">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-50 to-brand-100 flex items-center justify-center text-brand-500 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">100% 정찰제 투명한 공임</h3>
+                <p class="text-slate-600 leading-relaxed text-sm">
+                    전국 어디서나 동일하게 보장받는 공임나라 표준 정찰 요금을 준수합니다. 정비 시작 전 확실한 견적을 먼저 안내해 드리며 임의 추가금 청구가 절대 없습니다.
+                </p>
+            </div>
+
+            <!-- Strength 2 -->
+            <div class="bg-white border border-slate-200/60 hover:border-brand-500/40 p-8 rounded-3xl shadow-sm transition-all group">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent-50 to-accent-100 flex items-center justify-center text-accent-500 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-gears"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">최첨단 정밀 전문 장비</h3>
+                <p class="text-slate-600 leading-relaxed text-sm">
+                    안전과 밀접한 휠 교체 및 밸런싱을 위해 고급 진동 휠밸런서 기기 및 헬퍼 타이어 탈착기를 보유하고 있습니다. 소중한 휠에 기스나 흠집 없이 미세 진동까지 깔끔하게 해결합니다.
+                </p>
+            </div>
+
+            <!-- Strength 3 -->
+            <div class="bg-white border border-slate-200/60 hover:border-brand-500/40 p-8 rounded-3xl shadow-sm transition-all group">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-50 to-brand-100 flex items-center justify-center text-brand-500 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-car-on"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">국산 및 수입차 전차종 케어</h3>
+                <p class="text-slate-600 leading-relaxed text-sm">
+                    풍부한 정비 경력을 보유한 숙련된 엔지니어가 국산 패밀리카부터 디젤/가솔린 수입 차량까지 전용 진단기를 활용하여 고도의 경정비 분석을 완벽히 제공합니다.
+                </p>
+            </div>
+        </div>
+
+        <!-- Inline Banner for "꽃보다 타이어" Collaboration -->
+        <div class="mt-12 bg-gradient-to-r from-brand-50 via-accent-50 to-transparent border border-brand-100/60 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-4 text-center md:text-left flex-col md:flex-row">
+                <div class="bg-brand-500 text-white p-4 rounded-full text-2xl flex items-center justify-center">
+                    <i class="fa-solid fa-compact-disc"></i>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-brand-500">꽃보다 타이어 세종조치원점 동시 운영!</h4>
+                    <p class="text-sm text-slate-600 mt-1">
+                        타이어 최저가 구매 및 안전한 장착을 보장합니다. 정교한 헬퍼탈착기와 휠밸런싱 기기를 통해 편마모 없이 최고의 주행 성능을 끌어냅니다.
+                    </p>
+                </div>
+            </div>
+            <a href="tel:044-867-4811" class="whitespace-nowrap bg-accent-500 hover:bg-accent-600 text-white font-bold px-6 py-3 rounded-xl shadow transition-all">
+                타이어 견적 문의하기
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- POPULAR SERVICES SECTION -->
+<section id="services" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-xs font-bold text-brand-500 tracking-widest uppercase mb-3">Our Services</h2>
+            <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                가장 많이 찾으시는 인기 정비 서비스
+            </p>
+            <p class="mt-4 text-slate-600">
+                세종 조치원 지역 오너분들이 일상적으로 믿고 예약하시는 베스트 케어 항목입니다.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Service 1: Engine Oil -->
+            <div class="bg-slate-50 border border-slate-100 p-6 rounded-3xl relative group hover:-translate-y-1 transition-all">
+                <span class="absolute top-4 right-4 text-xs font-bold bg-accent-50 text-accent-500 px-2.5 py-1 rounded-full">인기 No.1</span>
+                <i class="fa-solid fa-oil-can text-4xl text-brand-500 mb-6 block"></i>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">엔진오일 교환</h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    오일 및 필터를 완벽 분리하고 남은 잔유 제거까지 깔끔하게! 올바른 엔진 관리를 위한 필수 기본 코스.
+                </p>
+                <div class="text-sm font-bold text-brand-500 mt-auto">
+                    공임 18,000원부터~
+                </div>
+            </div>
+
+            <!-- Service 2: Tires -->
+            <div class="bg-slate-50 border border-slate-100 p-6 rounded-3xl relative group hover:-translate-y-1 transition-all">
+                <span class="absolute top-4 right-4 text-xs font-bold bg-slate-200 text-slate-600 px-2.5 py-1 rounded-full">안전 필수</span>
+                <i class="fa-solid fa-circle-dot text-4xl text-brand-500 mb-6 block"></i>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">타이어 탈부착 / 교체</h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    정밀 헬퍼 탈착기를 이용해 타이어를 기스 없이 안전하게 탈부착하고 진동 휠밸런스로 미세 흔들림 제어.
+                </p>
+                <div class="text-sm font-bold text-brand-500 mt-auto">
+                    공임 개당 15,000원부터~
+                </div>
+            </div>
+
+            <!-- Service 3: Brake Pads -->
+            <div class="bg-slate-50 border border-slate-100 p-6 rounded-3xl relative group hover:-translate-y-1 transition-all">
+                <i class="fa-solid fa-ban text-4xl text-brand-500 mb-6 block"></i>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">브레이크 패드 교환</h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    제동 장치의 안전을 확보하는 고품질 패드 교체 작업. 마모도 체크 및 캘리퍼 윤활 점검 기본 포함.
+                </p>
+                <div class="text-sm font-bold text-brand-500 mt-auto">
+                    공임 단축형 30,000원부터~
+                </div>
+            </div>
+
+            <!-- Service 4: General Diagnostics -->
+            <div class="bg-slate-50 border border-slate-100 p-6 rounded-3xl relative group hover:-translate-y-1 transition-all">
+                <i class="fa-solid fa-computer text-4xl text-brand-500 mb-6 block"></i>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">소모품 점검 & 수입차 정비</h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    미션오일, 부동액, 브레이크오일 교환부터 전용 진단 스캐너를 이용한 트러블코드 에러 원인 분석 점검.
+                </p>
+                <div class="text-sm font-bold text-brand-500 mt-auto">
+                    진단 요금 별도 문의
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INTERACTIVE LABOR CALCULATOR -->
+<section id="calculator" class="py-24 bg-slate-50 border-t border-b border-slate-100 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-xs font-bold text-brand-500 tracking-widest uppercase mb-3">Smart Estimate</h2>
+            <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                나만의 맞춤 공임 계산기
+            </p>
+            <p class="mt-4 text-slate-600">
+                차종과 교환이 필요한 정비 항목을 선택해 실시간 예상 기본 공임비를 산정해 보세요. 투명함을 약속합니다.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Step Selection Panel (8 Columns) -->
+            <div class="lg:col-span-8 bg-white border border-slate-200/80 p-6 sm:p-8 rounded-3xl space-y-8 shadow-sm">
+                
+                <!-- Step 1: Vehicle Type -->
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-full bg-brand-500 text-white font-bold text-xs flex items-center justify-center">1</span>
+                        내 차량의 규격을 선택해 주세요
+                    </h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="vehicle-type" value="compact" checked class="sr-only peer" onclick="updateCalculator()">
+                            <div class="p-4 rounded-2xl bg-slate-50 border-2 border-transparent peer-checked:border-brand-500 peer-checked:bg-brand-50/50 hover:bg-slate-100/60 text-center transition-all">
+                                <i class="fa-solid fa-car-side text-2xl text-slate-400 peer-checked:text-brand-500 mb-2 block"></i>
+                                <span class="block font-bold text-sm text-slate-700">경형 / 소형</span>
+                                <span class="block text-xs text-slate-400 mt-1">모닝, 레이 등</span>
+                            </div>
+                        </label>
+
+                        <label class="cursor-pointer">
+                            <input type="radio" name="vehicle-type" value="sedan" class="sr-only peer" onclick="updateCalculator()">
+                            <div class="p-4 rounded-2xl bg-slate-50 border-2 border-transparent peer-checked:border-brand-500 peer-checked:bg-brand-50/50 hover:bg-slate-100/60 text-center transition-all">
+                                <i class="fa-solid fa-car text-2xl text-slate-400 peer-checked:text-brand-500 mb-2 block"></i>
+                                <span class="block font-bold text-sm text-slate-700">중형 / 준중형</span>
+                                <span class="block text-xs text-slate-400 mt-1">아반떼, 쏘나타 등</span>
+                            </div>
+                        </label>
+
+                        <label class="cursor-pointer">
+                            <input type="radio" name="vehicle-type" value="suv" class="sr-only peer" onclick="updateCalculator()">
+                            <div class="p-4 rounded-2xl bg-slate-50 border-2 border-transparent peer-checked:border-brand-500 peer-checked:bg-brand-50/50 hover:bg-slate-100/60 text-center transition-all">
+                                <i class="fa-solid fa-truck-monster text-2xl text-slate-400 peer-checked:text-brand-500 mb-2 block"></i>
+                                <span class="block font-bold text-sm text-slate-700">대형 SUV / RV</span>
+                                <span class="block text-xs text-slate-400 mt-1">싼타페, 카니발 등</span>
+                            </div>
+                        </label>
+
+                        <label class="cursor-pointer">
+                            <input type="radio" name="vehicle-type" value="import" class="sr-only peer" onclick="updateCalculator()">
+                            <div class="p-4 rounded-2xl bg-slate-50 border-2 border-transparent peer-checked:border-brand-500 peer-checked:bg-brand-50/50 hover:bg-slate-100/60 text-center transition-all">
+                                <i class="fa-solid fa-car-burst text-2xl text-slate-400 peer-checked:text-brand-500 mb-2 block"></i>
+                                <span class="block font-bold text-sm text-slate-700">수입차 전 차종</span>
+                                <span class="block text-xs text-slate-400 mt-1">BMW, Benz 등</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 2: Maintenance Items -->
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                        <span class="w-6 h-6 rounded-full bg-brand-500 text-white font-bold text-xs flex items-center justify-center">2</span>
+                        원하시는 정비 서비스를 선택해 주세요 (다중 선택 가능)
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Item 1 -->
+                        <label class="cursor-pointer select-none">
+                            <input type="checkbox" id="srv-oil" value="18000" class="sr-only peer" onclick="updateCalculator()">
+                            <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-50 border border-slate-200 peer-checked:border-brand-500 peer-checked:bg-brand-50/30 hover:bg-slate-100/50 transition-all">
+                                <div class="flex items-center gap-3">
+                                    <div class="text-brand-500"><i class="fa-solid fa-oil-can text-lg"></i></div>
+                                    <div>
+                                        <span class="block font-bold text-sm text-slate-800">엔진오일 교환</span>
+                                        <span class="block text-xs text-slate-400">기본 잔유 제거 정성 작업</span>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="block font-extrabold text-sm text-brand-500">18,000원~</span>
+                                    <span class="text-[10px] text-slate-400">수입차 요금 상이</span>
+                                </div>
+                            </div>
+                        </label>
+
+                        <!-- Item 2 -->
+                        <label class="cursor-pointer select-none">
+                            <input type="checkbox" id="srv-tire" value="15000" class="sr-only peer" onclick="updateCalculator()">
+                            <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-50 border border-slate-200 peer-checked:border-brand-500 peer-checked:bg-brand-50/30 hover:bg-slate-100/50 transition-all">
+                                <div class="flex items-center gap-3">
+                                    <div class="text-brand-500"><i class="fa-solid fa-circle-dot text-lg"></i></div>
+                                    <div>
+                                        <span class="block font-bold text-sm text-slate-800">타이어 탈부착 교체 (개당)</span>
+                                        <span class="block text-xs text-slate-400">정밀 휠 밸런스 점검 포함</span>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="block font-extrabold text-sm text-brand-500">15,000원~</span>
+                                    <span class="text-[10px] text-slate-400">UHP/인치별 변동</span>
+                                </div>
+                            </div>
+                        </label>
+
+                        <!-- Item 3 -->
+                        <label class="cursor-pointer select-none">
+                            <input type="checkbox" id="srv-brake" value="30000" class="sr-only peer" onclick="updateCalculator()">
+                            <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-50 border border-slate-200 peer-checked:border-brand-500 peer-checked:bg-brand-50/30 hover:bg-slate-100/50 transition-all">
+                                <div class="flex items-center gap-3">
+                                    <div class="text-brand-500"><i class="fa-solid fa-ban text-lg"></i></div>
+                                    <div>
+                                        <span class="block font-bold text-sm text-slate-800">브레이크 패드 교환 (전륜)</span>
+                                        <span class="block text-xs text-slate-400">확실한 제동 성능 유지 및 보수</span>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="block font-extrabold text-sm text-brand-500">30,000원~</span>
+                                    <span class="text-[10px] text-slate-400">전자식 파킹 차종 추가금</span>
+                                </div>
+                            </div>
+                        </label>
+
+                        <!-- Item 4 -->
+                        <label class="cursor-pointer select-none">
+                            <input type="checkbox" id="srv-aircon" value="10000" class="sr-only peer" onclick="updateCalculator()">
+                            <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-50 border border-slate-200 peer-checked:border-brand-500 peer-checked:bg-brand-50/30 hover:bg-slate-100/50 transition-all">
+                                <div class="flex items-center gap-3">
+                                    <div class="text-brand-500"><i class="fa-solid fa-wind text-lg"></i></div>
+                                    <div>
+                                        <span class="block font-bold text-sm text-slate-800">에어컨 향균 필터 교환</span>
+                                        <span class="block text-xs text-slate-400">쾌적한 차량 실내공기 유지</span>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="block font-extrabold text-sm text-brand-500">10,000원~</span>
+                                    <span class="text-[10px] text-slate-400">일부 수입/난이도 차량 변동</span>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estimate Breakdown / Total Summary (4 Columns) - Deep Navy Card layout for visual punch! -->
+            <div class="lg:col-span-4 bg-brand-900 text-white p-6 sm:p-8 rounded-3xl space-y-6 sticky top-24 shadow-xl">
+                <h3 class="font-bold text-lg border-b border-brand-800 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-receipt text-accent-500"></i> 실시간 예상 영수증
+                </h3>
+
+                <!-- Active selections render here -->
+                <div id="calculator-breakdown" class="space-y-3 min-h-[100px] text-sm text-slate-300">
+                    <p class="text-center py-6 text-slate-500">정비 항목을 선택하시면 실시간 계산이 수행됩니다.</p>
+                </div>
+
+                <div class="border-t border-brand-800 pt-4 space-y-2">
+                    <div class="flex items-center justify-between text-xs text-slate-400">
+                        <span>공임 가산 계수 (차종 가중치)</span>
+                        <span id="multiplier-display" class="text-white">1.0배 (경차 기준)</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold">합계 예상 공임</span>
+                        <div class="text-right">
+                            <span id="total-price-display" class="text-2xl font-black text-accent-500">0원</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-brand-950 p-4 rounded-2xl border border-brand-800 space-y-2 text-xs text-slate-400">
+                    <span class="font-semibold text-slate-300 block"><i class="fa-solid fa-circle-info text-accent-500 mr-1"></i> 알아두세요!</span>
+                    <p class="leading-relaxed">
+                        계산 결과는 공임나라 표준요금을 기초로 한 예상 공임비입니다. 현장 차종 특수성이나 특이 부품 교체 시 소액의 기술적 비용 변동이 생길 수 있습니다. 부품값은 미포함 금액입니다.
+                    </p>
+                </div>
+
+                <button onclick="applyEstimateToForm()" class="w-full text-center bg-accent-500 hover:bg-accent-600 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-accent-500/10 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-check"></i>이 견적으로 예약 문의하기
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BOOKING & CONSULTATION FORM -->
+<section id="booking" class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="text-xs font-bold text-brand-500 tracking-widest uppercase mb-3">Quick Booking</h2>
+            <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                빠른 간편 예약 & 정비 상담
+            </p>
+            <p class="mt-4 text-slate-600">
+                원하시는 정비 예약 날짜와 차종을 보내주시면 담당 엔지니어가 즉시 예약 확정을 위한 유선 연락을 드립니다.
+            </p>
+        </div>
+
+        <!-- Custom Notification Alerts (Replacing Native Alerts) -->
+        <div id="booking-alert" class="hidden mb-6 bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 p-4 rounded-2xl flex items-center gap-3">
+            <i class="fa-solid fa-circle-check text-xl"></i>
+            <div>
+                <span class="font-bold block">예약 신청 완료!</span>
+                <span class="text-sm">입력하신 연락처로 엔지니어가 신속하게 정비 일정 조율을 도와드리겠습니다.</span>
+            </div>
+        </div>
+
+        <!-- Booking Form Container -->
+        <form id="consultation-form" onsubmit="handleFormSubmit(event)" class="bg-slate-50 border border-slate-200 p-6 sm:p-10 rounded-3xl space-y-6 shadow-sm">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Name -->
+                <div>
+                    <label for="client-name" class="block text-sm font-semibold text-slate-700 mb-2">고객명 <span class="text-accent-500">*</span></label>
+                    <input type="text" id="client-name" required placeholder="홍길동" class="w-full bg-white border border-slate-200 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 rounded-xl px-4 py-3 text-slate-800 outline-none transition-all placeholder-slate-400">
+                </div>
+
+                <!-- Phone -->
+                <div>
+                    <label for="client-phone" class="block text-sm font-semibold text-slate-700 mb-2">연락처 <span class="text-accent-500">*</span></label>
+                    <input type="tel" id="client-phone" required placeholder="010-1234-5678" class="w-full bg-white border border-slate-200 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 rounded-xl px-4 py-3 text-slate-800 outline-none transition-all placeholder-slate-400">
+                </div>
+
+                <!-- Car Model -->
+                <div>
+                    <label for="car-model" class="block text-sm font-semibold text-slate-700 mb-2">차량 모델명 <span class="text-accent-500">*</span></label>
+                    <input type="text" id="car-model" required placeholder="예: 아반떼 CN7 / 그랜저 IG" class="w-full bg-white border border-slate-200 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 rounded-xl px-4 py-3 text-slate-800 outline-none transition-all placeholder-slate-400">
+                </div>
+
+                <!-- Car Year -->
+                <div>
+                    <label for="preferred-date" class="block text-sm font-semibold text-slate-700 mb-2">정비 희망 날짜 <span class="text-accent-500">*</span></label>
+                    <input type="date" id="preferred-date" required class="w-full bg-white border border-slate-200 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 rounded-xl px-4 py-3 text-slate-800 outline-none transition-all">
+                </div>
+            </div>
+
+            <!-- Service Details Text Area -->
+            <div>
+                <label for="service-memo" class="block text-sm font-semibold text-slate-700 mb-2">정비 희망 항목 및 추가 문의사항</label>
+                <textarea id="service-memo" rows="4" placeholder="교체 예정인 소모품이나 차량 증상 등을 자세히 남겨주시면 정교한 상담이 가능합니다. (예: 인터넷에서 산 휠타이어 4짝이랑 엔진오일 세트 가져갑니다.)" class="w-full bg-white border border-slate-200 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 rounded-xl px-4 py-3 text-slate-800 outline-none transition-all placeholder-slate-400"></textarea>
+            </div>
+
+            <!-- Terms Checklist -->
+            <div class="flex items-start gap-3">
+                <input type="checkbox" id="terms-agree" required class="mt-1 accent-brand-500 h-4 w-4 rounded">
+                <label for="terms-agree" class="text-xs sm:text-sm text-slate-500 select-none">
+                    개인정보 수집 및 상담 예약을 위한 마케팅/전화 안내 동의에 찬성합니다. (예약 확정을 위한 연락 이외의 용도로 사용하지 않습니다.)
+                </label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="w-full bg-accent-500 hover:bg-accent-600 text-white font-extrabold text-lg py-4 rounded-xl transition-all shadow-lg shadow-accent-500/25 transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                <i class="fa-regular fa-paper-plane"></i> 정비 예약 상담 신청하기
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- LOCATION, DIRECTIONS & OPERATING HOURS -->
+<section id="location" class="py-24 bg-slate-50 border-t border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Location Details (5 Columns) -->
+            <div class="lg:col-span-5 space-y-8">
+                <div>
+                    <h2 class="text-xs font-bold text-brand-500 tracking-widest uppercase mb-3">Directions</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                        오시는 길 & 매장 정보
+                    </p>
+                    <p class="mt-4 text-slate-600">
+                        세종특별자치시 조치원읍 죽림리 위치. 도로가 정면에 위치하여 대기 및 진출입이 매우 수월합니다.
+                    </p>
+                </div>
+
+                <!-- Info Stack -->
+                <div class="space-y-4">
+                    <!-- Address Info -->
+                    <div class="flex items-start gap-4">
+                        <div class="text-brand-500 mt-1"><i class="fa-solid fa-map-location-dot text-xl"></i></div>
+                        <div>
+                            <span class="block text-xs text-slate-400 font-bold uppercase tracking-wider">도로명 주소</span>
+                            <span class="block text-slate-800 font-bold text-base">세종특별자치시 조치원읍 충현로 48-11</span>
+                            <span class="block text-xs text-slate-500 mt-1">(지번: 죽림리 8번지, 꽃보다 타이어 매장 내 공임나라)</span>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="flex items-start gap-4">
+                        <div class="text-brand-500 mt-1"><i class="fa-solid fa-phone text-xl"></i></div>
+                        <div>
+                            <span class="block text-xs text-slate-400 font-bold uppercase tracking-wider">전화번호</span>
+                            <span class="block text-slate-800 font-bold text-base">044-867-4811</span>
+                            <span class="block text-xs text-slate-500 mt-1">휴대폰 직통: 010-2887-0031</span>
+                        </div>
+                    </div>
+
+                    <!-- Operating Hours -->
+                    <div class="flex items-start gap-4">
+                        <div class="text-brand-500 mt-1"><i class="fa-solid fa-clock text-xl"></i></div>
+                        <div>
+                            <span class="block text-xs text-slate-400 font-bold uppercase tracking-wider">영업시간</span>
+                            <span class="block text-slate-800 font-bold text-base">평일: 09:00 ~ 19:00</span>
+                            <span class="block text-slate-800 font-bold text-base">토요일: 09:00 ~ 18:00</span>
+                            <span class="block text-red-500 text-xs mt-1 font-semibold"><i class="fa-solid fa-circle-exclamation mr-1"></i>일요일 정기 휴무</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Navigation App Links -->
+                <div class="pt-4">
+                    <span class="block text-xs text-slate-400 font-bold mb-3 uppercase tracking-wider">빠른 모바일 네비게이션 연결</span>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://map.naver.com/v5/search/%EA%B3%B5%EC%9E%84%EB%82%98%EB%9D%BC%20%EC%84%B8%EC%A1%B0%EC%A1%B0%EC%B9%98%EC%9B%90" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs font-bold bg-[#03C75A] text-white px-4 py-2.5 rounded-xl hover:opacity-95 transition-opacity shadow-sm">
+                            <i class="fa-solid fa-location-arrow"></i>네이버 지도 바로가기
+                        </a>
+                        <a href="https://map.kakao.com/?q=%EA%B3%B5%EC%9E%84%EB%82%98%EB%9D%BC%20%EC%84%B8%EC%A1%B0%EC%A1%B0%EC%B9%98%EC%9B%90" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs font-bold bg-[#FEE500] text-slate-900 px-4 py-2.5 rounded-xl hover:opacity-95 transition-opacity shadow-sm">
+                            <i class="fa-solid fa-map-pin"></i>카카오 맵 바로가기
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Display Placeholder (7 Columns) -->
+            <div class="lg:col-span-7">
+                <div class="bg-white border border-slate-200 p-4 rounded-3xl shadow-xl shadow-slate-100 space-y-4">
+                    <!-- Stylized Location Card resembling modern satellite map dashboard -->
+                    <div class="relative rounded-2xl overflow-hidden aspect-video bg-slate-50 border border-slate-200 flex flex-col justify-between p-6">
+                        <!-- Radar decoration in corner -->
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_40%,_#f8fafc_95%)] pointer-events-none"></div>
+                        
+                        <!-- Map Grid Overlay -->
+                        <div class="absolute inset-0 bg-[linear-gradient(to_right,#cbd5e140_1px,transparent_1px),linear-gradient(to_bottom,#cbd5e140_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-40"></div>
+                        
+                        <!-- Top Bar UI -->
+                        <div class="relative z-10 flex justify-between items-center">
+                            <span class="bg-white/90 border border-slate-200 px-3 py-1.5 rounded-full text-xs text-slate-700 font-bold flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-solid fa-location-crosshairs text-brand-500 animate-spin"></i> GPS 위도/경도 확인됨
+                            </span>
+                            <span class="bg-accent-500 text-white text-[10px] font-black tracking-wider px-2 py-0.5 rounded uppercase">HQ BRANCH</span>
+                        </div>
+
+                        <!-- Center Marker UI -->
+                        <div class="relative z-10 flex flex-col items-center justify-center text-center py-4">
+                            <div class="h-16 w-16 bg-brand-500/10 rounded-full flex items-center justify-center animate-pulse mb-3 border border-brand-500/30">
+                                <i class="fa-solid fa-house-chimney-crack text-2xl text-brand-500"></i>
+                            </div>
+                            <h4 class="text-lg font-black text-brand-500">공임나라 세종조치원점</h4>
+                            <p class="text-xs text-slate-500 mt-1 max-w-xs">세종특별자치시 조치원읍 충현로 48-11</p>
+                        </div>
+
+                        <!-- Bottom Nav Assistance UI -->
+                        <div class="relative z-10 flex justify-between items-center text-xs text-slate-400">
+                            <span>신흥사거리 인근 충현로 대로변 위치</span>
+                            <span class="text-brand-500 font-bold">T: 044-867-4811</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Safety Alert Banner -->
+                    <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-200 text-xs text-slate-500">
+                        <i class="fa-solid fa-circle-info text-brand-500 text-sm shrink-0"></i>
+                        <p class="leading-relaxed">
+                            매장에 정비 예약 시간보다 10분 정도 먼저 도착해 대기해 주시면 더욱 신속하게 리프트 진입 및 부품 사전 하역 작업 조정을 진행할 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FAQ & REVIEWS SECTION -->
+<section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            
+            <!-- Left Side: Interactive FAQ Accordion -->
+            <div class="space-y-8">
+                <div>
+                    <h2 class="text-xs font-bold text-brand-500 tracking-widest uppercase mb-3">FAQ</h2>
+                    <p class="text-3xl font-extrabold text-slate-900 tracking-tight">자주 묻는 질문</p>
+                    <p class="mt-2 text-slate-600">정비 이용 전에 궁금해 하시는 부분들을 명확히 답해드립니다.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden transition-all shadow-sm">
+                        <button onclick="toggleFaq(1)" class="w-full text-left px-6 py-4 font-bold text-slate-800 flex justify-between items-center gap-4 hover:bg-slate-100/50 focus:outline-none">
+                            <span>Q. 정비에 사용되는 소모품을 직접 사가지고 가야 하나요?</span>
+                            <i id="faq-icon-1" class="fa-solid fa-chevron-down text-brand-500 transition-transform duration-300"></i>
+                        </button>
+                        <div id="faq-ans-1" class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/55 pt-3">
+                            네, 그렇습니다! 고객님께서 인터넷, 오픈마켓 등에서 차량 모델에 적합한 오일세트, 타이어, 브레이크 패드 등을 저렴하게 구입하신 후 매장으로 가져오시면 합리적인 정찰제 표준 공임비만 부과되어 장착해 드립니다. <br>만약 부품을 미리 구입하지 못하셨더라도 당 매장에서 고품질의 소모품 및 최고급 타이어를 현장 정찰 특별 혜택가로 동시 구매하여 교환하는 것도 가능합니다.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden transition-all shadow-sm">
+                        <button onclick="toggleFaq(2)" class="w-full text-left px-6 py-4 font-bold text-slate-800 flex justify-between items-center gap-4 hover:bg-slate-100/50 focus:outline-none">
+                            <span>Q. 수입차도 표준 공임으로 정비 가능한가요?</span>
+                            <i id="faq-icon-2" class="fa-solid fa-chevron-down text-brand-500 transition-transform duration-300"></i>
+                        </button>
+                        <div id="faq-ans-2" class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/55 pt-3">
+                            예, 가능합니다. 저희 세종조치원점에서는 전용 수입차 정비 진단 및 첨단 장비를 보유하고 있어, 아우디, BMW, 메르세데스 벤츠 등 다양한 유럽 및 글로벌 차종에 대한 오일류 교환, 브레이크 마찰 패드 점검, 타이어 보수가 표준화된 고지 공임을 기준으로 수행됩니다. 국산차 대비 특수 작업성이 가산되므로 사전에 계산기 시뮬레이션 및 문의 전화를 주시면 정확합니다.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden transition-all shadow-sm">
+                        <button onclick="toggleFaq(3)" class="w-full text-left px-6 py-4 font-bold text-slate-800 flex justify-between items-center gap-4 hover:bg-slate-100/50 focus:outline-none">
+                            <span>Q. 예약 신청을 하면 당일 정비도 가능한가요?</span>
+                            <i id="faq-icon-3" class="fa-solid fa-chevron-down text-brand-500 transition-transform duration-300"></i>
+                        </button>
+                        <div id="faq-ans-3" class="hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/55 pt-3">
+                            기본적으로 당사 예약 스케줄에 잔여 슬롯이 있는 경우 즉시 접수 및 당일 예약 정비도 원활하게 가능합니다. 랜딩 페이지의 간편 예약을 작성해주시면 담당 엔지니어가 실시간 정비 베이 현황을 검토한 후 예약 확정 안내를 드립니다. 급하게 당일 입차가 필요하신 경우, 유선 전화(044-867-4811)로 전화 주시면 가장 신속히 베이를 비워 안내해 드리겠습니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Real Reviews from users -->
+            <div class="space-y-8">
+                <div>
+                    <h2 class="text-xs font-bold text-brand-500 tracking-widest uppercase mb-3">Customer Stories</h2>
+                    <p class="text-3xl font-extrabold text-slate-900 tracking-tight">고객 정비 생생 후기</p>
+                    <p class="mt-2 text-slate-600">공임나라 세종조치원점을 이용하신 차주분들의 리얼 평가입니다.</p>
+                </div>
+
+                <!-- Review Items stack -->
+                <div class="space-y-4">
+                    <!-- Review 1 -->
+                    <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl space-y-3 shadow-sm">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="h-8 w-8 rounded-full bg-brand-500/10 text-brand-500 flex items-center justify-center font-bold text-xs">김*현</span>
+                                <span class="text-sm font-bold text-slate-700">K5 차주</span>
+                            </div>
+                            <div class="text-accent-500 text-xs flex gap-0.5">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            "인터넷에서 산 가성비 엔진오일 필터 세트 사서 공임나라 세종조치원점으로 왔습니다. 잔유 제거 작업도 정말 성심껏 해주시고 에어건으로 엔진룸 먼지도 시원하게 청소해주셔서 정말 감동받았어요. 사장님 친절하시고 실력도 좋으십니다. 무조건 여기로 고정입니다."
+                        </p>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl space-y-3 shadow-sm">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="h-8 w-8 rounded-full bg-brand-500/10 text-brand-500 flex items-center justify-center font-bold text-xs">최*민</span>
+                                <span class="text-sm font-bold text-slate-700">쏘렌토 MQ4 차주</span>
+                            </div>
+                            <div class="text-accent-500 text-xs flex gap-0.5">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            "타이어 마모 한계 도달해서 인터넷 최저가 타이어 구매 후, 조치원 지점으로 배송 보내서 교체했습니다. 타이어 헬퍼 탈착기도 있어서 19인치 큰 휠인데도 흠집 하나 없이 정확하게 탈거하고 고속 휠밸런스 진동까지 확실하게 세팅 완료해 주시더군요. 편안하게 운행 중입니다!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-brand-900 border-t border-brand-950 pt-16 pb-12 text-sm text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+            <!-- Footer Col 1: Brand Info (5 Columns) -->
+            <div class="md:col-span-5 space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="bg-brand-500 text-white p-2 rounded-lg font-black text-sm">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <span class="text-lg font-black text-white">공임나라 세종조치원점</span>
+                </div>
+                <p class="text-slate-300 max-w-sm leading-relaxed">
+                    꽃보다 타이어 세종조치원점과 협력 운영되는 매장으로, 투명한 표준공임과 고정밀 장비를 활용한 타이어 교환, 일반 경정비를 최고 수준으로 안전하게 처리해 드립니다.
+                </p>
+            </div>
+
+            <!-- Footer Col 2: Quick Links (3 Columns) -->
+            <div class="md:col-span-3 space-y-3">
+                <h5 class="text-white font-bold">바로가기</h5>
+                <ul class="space-y-2">
+                    <li><a href="#about" class="hover:text-accent-500 transition-colors">매장 소개</a></li>
+                    <li><a href="#services" class="hover:text-accent-500 transition-colors">정비 항목</a></li>
+                    <li><a href="#calculator" class="hover:text-accent-500 transition-colors">공임 계산기</a></li>
+                    <li><a href="#booking" class="hover:text-accent-500 transition-colors">정비 예약 문의</a></li>
+                </ul>
+            </div>
+
+            <!-- Footer Col 3: Business Register details (4 Columns) -->
+            <div class="md:col-span-4 space-y-3">
+                <h5 class="text-white font-bold">사업자 정보</h5>
+                <ul class="space-y-1.5 text-xs">
+                    <li>상호명: 꽃보다 타이어 세종조치원점</li>
+                    <li>대표자: 연제승</li>
+                    <li>사업자등록번호: 778-31-00937</li>
+                    <li>주소: 세종특별자치시 조치원읍 충현로 48-11 (죽림리 8)</li>
+                    <li>대표전화: 044-867-4811 | HP: 010-2887-0031</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom Copyright banner -->
+        <div class="border-t border-brand-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+            <p>© 2026 공임나라 세종조치원점 (꽃보다 타이어). All Rights Reserved.</p>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-white transition-colors">이용약관</a>
+                <a href="#" class="hover:text-white transition-colors">개인정보처리방침</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JAVASCRIPT LOGIC -->
+<script>
+    // Toggle Mobile Navigation Menu
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        if (mobileMenu.classList.contains('hidden')) {
+            menuIcon.className = 'fa-solid fa-bars text-2xl';
+        } else {
+            menuIcon.className = 'fa-solid fa-xmark text-2xl';
+        }
+    });
+
+    // Close mobile menu on click of nav link
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuIcon.className = 'fa-solid fa-bars text-2xl';
+        });
+    });
+
+    // Interactive Estimator Calculation Logic
+    function updateCalculator() {
+        const vehicleRadio = document.querySelector('input[name="vehicle-type"]:checked');
+        const vehicleVal = vehicleRadio ? vehicleRadio.value : 'compact';
+        
+        let multiplier = 1.0;
+        let multiplierText = "1.0배 (경차 기준)";
+
+        switch(vehicleVal) {
+            case 'compact':
+                multiplier = 1.0;
+                multiplierText = "1.0배 (경차 기준)";
+                break;
+            case 'sedan':
+                multiplier = 1.1;
+                multiplierText = "1.1배 (중대형 승용 기준)";
+                break;
+            case 'suv':
+                multiplier = 1.25;
+                multiplierText = "1.25배 (SUV / RV 기준)";
+                break;
+            case 'import':
+                multiplier = 1.6;
+                multiplierText = "1.6배 (수입 전용 차량 가치 가산)";
+                break;
+        }
+
+        // Display Multiplier
+        document.getElementById('multiplier-display').innerText = multiplierText;
+
+        // Calculate Selected Services
+        let totalBasePrice = 0;
+        let selectedList = [];
+
+        const services = [
+            { id: 'srv-oil', name: '엔진오일 교환', price: 18000 },
+            { id: 'srv-tire', name: '타이어 탈부착 교체 (개당)', price: 15000 },
+            { id: 'srv-brake', name: '브레이크 패드 교환', price: 30000 },
+            { id: 'srv-aircon', name: '에어컨 필터 교환', price: 10000 }
+        ];
+
+        services.forEach(srv => {
+            const chk = document.getElementById(srv.id);
+            if (chk && chk.checked) {
+                const appliedPrice = Math.round(srv.price * multiplier);
+                totalBasePrice += appliedPrice;
+                selectedList.push({ name: srv.name, price: appliedPrice });
+            }
+        });
+
+        // Render Breakdown
+        const breakdownDiv = document.getElementById('calculator-breakdown');
+        if (selectedList.length === 0) {
+            breakdownDiv.innerHTML = '<p class="text-center py-6 text-slate-500">정비 항목을 선택하시면 실시간 예상 공임 계산이 수행됩니다.</p>';
+            document.getElementById('total-price-display').innerText = '0원';
+        } else {
+            let html = '<ul class="space-y-2">';
+            selectedList.forEach(item => {
+                html += `
+                    <li class="flex justify-between items-center text-xs">
+                        <span class="text-slate-200 font-medium">${item.name}</span>
+                        <span class="text-white font-bold">${item.price.toLocaleString()}원</span>
+                    </li>
+                `;
+            });
+            html += '</ul>';
+            breakdownDiv.innerHTML = html;
+            document.getElementById('total-price-display').innerText = totalBasePrice.toLocaleString() + '원';
+        }
+    }
+
+    // Auto apply calculated estimate into quick booking form memo area
+    function applyEstimateToForm() {
+        const vehicleRadio = document.querySelector('input[name="vehicle-type"]:checked');
+        const vehicleVal = vehicleRadio ? vehicleRadio.value : 'compact';
+        let vehicleKorean = "경형/소형";
+        if (vehicleVal === 'sedan') vehicleKorean = "중형/준중형";
+        if (vehicleVal === 'suv') vehicleKorean = "대형 SUV / RV";
+        if (vehicleVal === 'import') vehicleKorean = "수입차";
+
+        let selectedNames = [];
+        const services = [
+            { id: 'srv-oil', name: '엔진오일 교환' },
+            { id: 'srv-tire', name: '타이어 교환' },
+            { id: 'srv-brake', name: '브레이크 패드 교환' },
+            { id: 'srv-aircon', name: '에어컨 필터 교환' }
+        ];
+
+        services.forEach(srv => {
+            const chk = document.getElementById(srv.id);
+            if (chk && chk.checked) {
+                selectedNames.push(srv.name);
+            }
+        });
+
+        const totalPrice = document.getElementById('total-price-display').innerText;
+
+        if (selectedNames.length === 0) {
+            // Smoothly scroll to booking without custom content if nothing selected
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+            return;
+        }
+
+        const memoTextArea = document.getElementById('service-memo');
+        memoTextArea.value = `[자동 견적 적용]
+차종: ${vehicleKorean}
+선택 정비 항목: ${selectedNames.join(', ')}
+예상 총 공임비: ${totalPrice}
+
+인터넷 부품 배송 및 준비 일정에 맞춰서 정비 가능한지 확인 부탁드립니다.`;
+
+        // Smooth Scroll to booking form
+        document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Dynamic FAQ Accordion Toggle
+    function toggleFaq(id) {
+        const ans = document.getElementById(`faq-ans-${id}`);
+        const icon = document.getElementById(`faq-icon-${id}`);
+        
+        if (ans.classList.contains('hidden')) {
+            ans.classList.remove('hidden');
+            icon.classList.add('rotate-180');
+        } else {
+            ans.classList.add('hidden');
+            icon.classList.remove('rotate-180');
+        }
+    }
+
+    // Form Submission Handler with custom styled non-blocking notification
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        
+        const clientName = document.getElementById('client-name').value;
+        const clientPhone = document.getElementById('client-phone').value;
+        const carModel = document.getElementById('car-model').value;
+        const preferredDate = document.getElementById('preferred-date').value;
+        const memo = document.getElementById('service-memo').value;
+
+        // Visual validation feedback simulator
+        const alertBox = document.getElementById('booking-alert');
+        alertBox.classList.remove('hidden');
+        
+        // Reset Form Inputs
+        document.getElementById('consultation-form').reset();
+        
+        // Auto-scroll slightly to the alert box
+        alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Auto hide alert after 8 seconds
+        setTimeout(() => {
+            alertBox.classList.add('hidden');
+        }, 8000);
+    }
+
+    // Initialize Default Date to tomorrow
+    window.addEventListener('DOMContentLoaded', () => {
+        const dateInput = document.getElementById('preferred-date');
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const yyyy = tomorrow.getFullYear();
+        let mm = tomorrow.getMonth() + 1;
+        let dd = tomorrow.getDate();
+        
+        if (mm < 10) mm = '0' + mm;
+        if (dd < 10) dd = '0' + dd;
+        
+        dateInput.value = `${yyyy}-${mm}-${dd}`;
+        
+        // Initial Calculation Trigger
+        updateCalculator();
+    });
+</script>
+
+</body>
+</html>
